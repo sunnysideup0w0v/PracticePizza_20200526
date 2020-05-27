@@ -1,10 +1,13 @@
 package com.example.practicepizza_20200526.Adapters;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,6 +35,11 @@ public class PizzaAdapter extends ArrayAdapter<PizzaStore> {
         if(row==null){
             row = inf.inflate(R.layout.pizza_store_list_item, null);
         }
+        ImageView storeLogoImg = row.findViewById(R.id.storeLogoImg);
+        TextView storeNameTxt = row.findViewById(R.id.sotreNameTxt);
+
+        PizzaStore data = mList.get(position);
+        storeNameTxt.setText(data.getName());
         return row;
     }
 }
